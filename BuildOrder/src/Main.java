@@ -31,7 +31,7 @@ public class Main {
 
         for (String result: results
              ) {
-            System.out.println(result);
+            System.out.print(result);
         }
     }
 
@@ -49,7 +49,6 @@ public class Main {
 
     static String[][] dependencySorter(String[][] dependencies)
     {
-        System.out.println("Begin Sort");
         int loops = 0;
         boolean sorted = true;
         do {
@@ -60,16 +59,14 @@ public class Main {
                 {
                     if(dependencies[i][0].equals(dependencies[j][1]))
                     {
-                        System.out.println("Swapping");
                         String[] temp = dependencies[j];
                         dependencies[j] = dependencies[i];
                         dependencies[i] = temp;
                         sorted = false;
                     }
-                    System.out.println("Inner");
                 }
-                System.out.println("Outer");
             }
+            loops++;
         } while(!sorted && (loops < dependencies.length*2));
         if(loops >= dependencies.length*2)
             System.out.println("Error!");
